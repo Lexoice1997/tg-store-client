@@ -1,0 +1,15 @@
+/* .foods {
+  margin-top: 30px;
+} */
+
+.foods h1 {
+  font-size: 40px;
+  font-weight: 500;
+}
+
+.foods-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 20px;
+}
+

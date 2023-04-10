@@ -1,0 +1,93 @@
+.food {
+  background: #f7f7f7;
+  box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.17);
+  border-radius: 7px;
+  margin-right: 20px;
+  margin-bottom: 20px;
+  width: 160px;
+}
+
+.food:nth-child(2n) {
+  margin-right: 0;
+}
+
+.food-img {
+  height: 130px;
+  width: 100%;
+  border-top-right-radius: 7px;
+  border-top-left-radius: 7px;
+}
+
+.food-inner {
+  height: 180px;
+}
+
+.food-info {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 140px;
+}
+
+.food-name {
+  font-size: 16px;
+  margin-bottom: 7px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  -webkit-hyphens: none;
+  -ms-hyphens: none;
+  overflow-wrap: break-word;
+  hyphens: manual;
+}
+
+.food-description {
+  font-size: 12px;
+  margin-bottom: 7px;
+  overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+}
+
+.food-price {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.food-btns {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.food-btns button {
+  width: 35px;
+  height: 25px;
+  border: none;
+  font-size: 20px;
+  border-radius: 5px;
+  color: white;
+}
+.food-btns button:hover {
+  cursor: pointer;
+}
+
+.food-btns button:first-child {
+  background-color: rgb(255, 91, 91);
+}
+
+.food-btns button:last-child {
+  background-color: rgb(84, 84, 255);
+}
+
+.food-btns button:first-child:hover {
+  background-color: rgb(255, 47, 47);
+}
+
+.food-btns button:last-child:hover {
+  background-color: rgb(46, 46, 250);
+}

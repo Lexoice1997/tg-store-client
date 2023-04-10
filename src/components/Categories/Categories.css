@@ -1,0 +1,34 @@
+.categories {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.category {
+  border-radius: 15px;
+  font-size: 14px;
+  padding: 10px 15px;
+  margin-right: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 1px solid rgba(219, 219, 219, 0.5);
+  transition: all 0.5s ease;
+}
+
+.category:hover {
+  background-color: #f66141;
+  color: white;
+  cursor: pointer;
+}
+
+.category:last-child {
+  margin-right: 0;
+}
+
+.category-active {
+  background-color: #f66141;
+  color: white;
+  cursor: pointer;
+}
+
