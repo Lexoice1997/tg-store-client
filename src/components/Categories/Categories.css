@@ -17,7 +17,7 @@
 }
 
 .category:hover {
-  background-color: #f66141;
+  background-color: var(--tg-theme-button-color);
   color: white;
   cursor: pointer;
 }
@@ -27,8 +27,7 @@
 }
 
 .category-active {
-  background-color: #f66141;
-  color: white;
+  background-color: var(--tg-theme-button-color);
+  color: var(--tg-theme-button-text-color);
   cursor: pointer;
 }
-
