@@ -3,7 +3,7 @@ export interface Food {
   name: string;
   description: string;
   price: string;
-  image: string;
+  avatar: string;
   fileId?: string;
   setEdit?: () => void;
   admin?: boolean;

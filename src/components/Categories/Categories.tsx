@@ -11,7 +11,7 @@ import CategoriesSkeleton from './CategpriesSkeleton';
 function Categories() {
   const { data: categories, isLoading } = useGetAllCategoriesQuery(null);
 
-  const [categoryActiveId, setCategoryActiveId] = useState<string>('');
+  const [categoryActiveId, setCategoryActiveId] = useState<string>('0');
 
   const handleSetCategoryIdActive = (id: string) => {
     setCategoryActiveId(id);
@@ -30,6 +30,9 @@ function Categories() {
       }}
       className="mySwiper categories"
     >
+      <SwiperSlide onClick={() => handleSetCategoryIdActive('0')}>
+        <CategoriesItem id="0" name="Все" categoryActiveId={categoryActiveId} />
+      </SwiperSlide>
       {categories?.map((item: Category) => (
         <SwiperSlide key={item.id} onClick={() => handleSetCategoryIdActive(item.id)}>
           <CategoriesItem id={item.id} name={item.name} categoryActiveId={categoryActiveId} />

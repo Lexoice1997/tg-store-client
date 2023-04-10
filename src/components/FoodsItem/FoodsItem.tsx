@@ -7,7 +7,7 @@ import { decrementOrder, incrementOrder } from '../../store/slices/orderSlice';
 import { Food } from '../../types/Food';
 import './FoodsItem.css';
 
-function FoodsItem({ id, name, description, price, image }: Food) {
+function FoodsItem({ id, name, description, price, avatar }: Food) {
   const dispatch = useAppDispatch();
   const [count, setCount] = React.useState(0);
 
@@ -25,7 +25,7 @@ function FoodsItem({ id, name, description, price, image }: Food) {
     <div className="food">
       <LazyLoadImage
         alt={name}
-        src={image}
+        src={avatar}
         effect="blur"
         className="food-img"
         width="100%"

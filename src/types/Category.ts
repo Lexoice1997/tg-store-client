@@ -4,5 +4,11 @@ export interface Category {
   id: string;
   name: string;
   categoryActiveId?: string;
-  foods?: Food[] | undefined;
+}
+
+export interface Categories {
+  id: string;
+  name: string;
+  categoryActiveId?: string;
+  menu: Food[];
 }

@@ -1,24 +1,19 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react';
-import { Food } from '../../types/Food';
-import { setFoods } from '../slices/foodSlice';
+import { Categories } from '../../types/Category';
 
 export const apiService = createApi({
   reducerPath: 'pokemonApi',
-  baseQuery: fetchBaseQuery({ baseUrl: 'http://localhost:5000' }),
+  baseQuery: fetchBaseQuery({ baseUrl: 'https://kvartirabar.uz' }),
   tagTypes: ['Categories'],
   endpoints: (builder) => ({
     getAllCategories: builder.query<any, null>({
-      query: () => '/categories',
+      query: () => '/category',
       providesTags: ['Categories'],
     }),
-    getFoodsByCategoryId: builder.query<Food[], string>({
+    getFoodsByCategoryId: builder.query<Categories[], string>({
       query: (categoryId) => ({
-        url: `/foods`,
+        url: `/category/${categoryId === '0' ? '' : categoryId}`,
         method: 'GET',
-        params: { categoryId },
-        async onQueryStarted(_: any, { dispatch }: any) {
-          dispatch(setFoods(''));
-        },
       }),
       providesTags: ['Categories'],
     }),

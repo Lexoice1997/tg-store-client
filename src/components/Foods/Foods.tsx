@@ -14,7 +14,9 @@ function Foods() {
   const { data, isLoading } = useGetFoodsByCategoryIdQuery(categoryId);
 
   useEffect(() => {
-    dispatch(setFoods(data));
+    if (data) {
+      dispatch(setFoods(data));
+    }
   }, [data, dispatch]);
 
   if (isLoading) {
@@ -33,7 +35,7 @@ function Foods() {
             description={item.description}
             categoryId={categoryId}
             price={item.price}
-            image={item.image}
+            avatar={item.avatar}
           />
         ))}
       </div>
