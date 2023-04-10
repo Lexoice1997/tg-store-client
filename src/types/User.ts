@@ -6,7 +6,7 @@ export interface User {
 }
 
 export interface ResponseUser {
-  data: SignIn
+  data: SignIn;
 }
 
 export interface SignIn {

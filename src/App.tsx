@@ -4,20 +4,18 @@ import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
 import { useEffect } from 'react';
 import './App.css';
-import Header from './components/Header/Header';
 import { useTelegram } from './helpers/hooks/useTelegram';
 import RoutesComponent from './routes/Routes';
 
 function App() {
-  const { onToggleButton, tg } = useTelegram();
+  const { tg } = useTelegram();
 
   useEffect(() => {
     tg.ready();
-  }, []);
+  }, [tg]);
 
   return (
     <div className="app">
-      {/* <Header /> */}
       <RoutesComponent />
     </div>
   );

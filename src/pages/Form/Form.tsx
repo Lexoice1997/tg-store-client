@@ -5,7 +5,7 @@ import './Form.css';
 function Form() {
   const [country, setCountry] = useState('');
   const [street, setStreet] = useState('');
-  const [subject, setSubject] = useState('physical');
+  const [subject] = useState('physical');
   const { tg } = useTelegram();
 
   const onSendData = useCallback(() => {
@@ -44,10 +44,6 @@ function Form() {
 
   const onChangeStreet = (e: React.ChangeEvent<HTMLInputElement>) => {
     setStreet(e.target.value);
-  };
-
-  const onChangeSubject = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setSubject(e.target.value);
   };
 
   return (
