@@ -41,6 +41,7 @@ const orderSlice = createSlice({
           item.count -= action.payload.count;
         }
       });
+      state.order = state.order.filter((item) => item.count > 0);
     },
   },
 });

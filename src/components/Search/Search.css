@@ -8,12 +8,12 @@
 
 .search-icon {
   position: absolute;
-  top: 8px;
-  left: 12px;
+  top: 11px;
+  left: 10px;
   font-size: 24px;
-  color: gray;
-  width: 20px;
-  height: 20px;
+  color: var(--tg-theme-hint-color);
+  width: 25px;
+  height: 25px;
 }
 
 .search-input {
@@ -24,11 +24,12 @@
   outline: none;
   border: none;
   color: gray;
+  font-size: 20px;
   transition: background-color 0.5s ease;
 }
 
 .search-input:focus {
-  outline: 1px solid rgba(246, 97, 65, 0.3);
+  outline: 1px solid #286f91;
 }
 
 .search-input::placeholder {

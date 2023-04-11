@@ -5,7 +5,7 @@ import Search from '../components/Search/Search';
 function Home() {
   return (
     <>
-      <h1>Good Evening</h1>
+      {/* <h1>Good Evening</h1> */}
       <Search />
       <Categories />
       <Foods />
