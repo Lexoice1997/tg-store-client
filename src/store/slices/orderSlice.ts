@@ -6,7 +6,7 @@ interface Food {
   price: string;
 }
 
-interface FoodOrder {
+export interface FoodOrder {
   food: Food;
   count: number;
 }
