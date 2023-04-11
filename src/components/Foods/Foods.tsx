@@ -35,7 +35,7 @@ function Foods() {
     }
   }, [order, tg.MainButton]);
 
-  if (!isLoading) {
+  if (isLoading) {
     return <FoodsSkeleton />;
   }
 
