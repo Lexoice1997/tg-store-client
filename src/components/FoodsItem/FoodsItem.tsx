@@ -38,7 +38,7 @@ function FoodsItem({ id, name, price, avatar }: Food) {
             {/* <p className="food-description">{description}</p> */}
           </div>
           <div>
-            <p className="food-price">{splitNum(price)} сум</p>
+            <p className="food-price">{splitNum(+price)} сум</p>
           </div>
         </div>
         <div className="food-btns">

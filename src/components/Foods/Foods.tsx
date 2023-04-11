@@ -8,6 +8,7 @@ import { Food } from '../../types/Food';
 import FoodsItem from '../FoodsItem/FoodsItem';
 import './Foods.css';
 import FoodsSkeleton from './FoodsSkeleton';
+import { splitNum } from '../../helpers/utils/splitNum';
 
 function Foods() {
   const dispatch = useAppDispatch();
@@ -29,12 +30,12 @@ function Foods() {
     } else {
       tg.MainButton.show();
       tg.MainButton.setParams({
-        text: `Заказать ${getTotalPrice(order)}`,
+        text: `Заказать ${splitNum(getTotalPrice(order))}`,
       });
     }
   }, [order, tg.MainButton]);
 
-  if (isLoading) {
+  if (!isLoading) {
     return <FoodsSkeleton />;
   }
 
