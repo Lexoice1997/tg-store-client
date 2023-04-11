@@ -1,17 +1,19 @@
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useAppDispatch, useAppSelector } from '../../helpers/hooks/redux';
 import { useTelegram } from '../../helpers/hooks/useTelegram';
 import { getTotalPrice } from '../../helpers/utils/getTotalPrice';
+import { splitNum } from '../../helpers/utils/splitNum';
 import { useGetFoodsByCategoryIdQuery } from '../../store/services/apiService';
 import { setFoods } from '../../store/slices/foodSlice';
 import { Food } from '../../types/Food';
 import FoodsItem from '../FoodsItem/FoodsItem';
 import './Foods.css';
 import FoodsSkeleton from './FoodsSkeleton';
-import { splitNum } from '../../helpers/utils/splitNum';
 
 function Foods() {
   const dispatch = useAppDispatch();
+  const navigate = useNavigate();
   const { tg } = useTelegram();
   const { categoryId, categoryName } = useAppSelector((state) => state.category);
   const { foods } = useAppSelector((state) => state.food);
@@ -24,13 +26,25 @@ function Foods() {
     }
   }, [data, dispatch]);
 
+  const navigateToFormPage = () => {
+    navigate('/form');
+  };
+
+  useEffect(() => {
+    tg.onEvent('mainButtonClicked', navigateToFormPage);
+    return () => {
+      tg.offEvent('mainButtonClicked', navigateToFormPage);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [tg]);
+
   useEffect(() => {
     if (order.length === 0) {
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
       tg.MainButton.setParams({
-        text: `Заказать ${splitNum(getTotalPrice(order))}`,
+        text: `Заказать (Общий: (${splitNum(getTotalPrice(order))})`,
       });
     }
   }, [order, tg.MainButton]);
