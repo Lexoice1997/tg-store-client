@@ -1,10 +1,10 @@
 .food {
-  background: #f7f7f7;
+  background: var(--tg-theme-secondary-bg-color);
   box-shadow: 0px 4px 14px rgba(0, 0, 0, 0.17);
   border-radius: 7px;
   margin-right: 20px;
   margin-bottom: 20px;
-  width: 160px;
+  width: 170px;
 }
 
 .food:nth-child(2n) {
@@ -32,7 +32,7 @@
 }
 
 .food-name {
-  font-size: 16px;
+  font-size: 18px;
   margin-bottom: 7px;
   overflow: hidden;
   display: -webkit-box;
@@ -54,8 +54,9 @@
 }
 
 .food-price {
-  font-size: 14px;
+  font-size: 17px;
   font-weight: bold;
+  color: var(--tg-theme-hint-color);
 }
 
 .food-btns {
