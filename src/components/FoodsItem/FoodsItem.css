@@ -20,6 +20,7 @@
 
 .food-inner {
   height: 180px;
+  background-color: var(--tg-theme-secondary_bg_color);
 }
 
 .food-info {
