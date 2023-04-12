@@ -6,12 +6,10 @@
 
 body {
   font-family: 'Roboto';
-  background: var(--tg-theme-bg-color);
-  color: var(--tg-theme-text-color);
+
 }
 
 .app {
-  padding: 20px;
 }
 
 

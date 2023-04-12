@@ -4,6 +4,7 @@ interface Food {
   id: string;
   name: string;
   price: string;
+  avatar: string;
 }
 
 export interface FoodOrder {

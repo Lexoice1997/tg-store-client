@@ -1,8 +1,11 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { useAppSelector } from '../../helpers/hooks/redux';
 import { useTelegram } from '../../helpers/hooks/useTelegram';
+import { splitNum } from '../../helpers/utils/splitNum';
 import './Form.css';
 
 function Form() {
+  const { order } = useAppSelector((state) => state.order);
   const [country, setCountry] = useState('');
   const [street, setStreet] = useState('');
   const [subject] = useState('physical');
@@ -48,20 +51,29 @@ function Form() {
 
   return (
     <div className="form">
-      <h3>Введите ваши данные</h3>
+      <div className="form-body">
+        <div className="form-title">
+          <h3>ВАШ ЗАКАЗ</h3>
+          <p>Изменить</p>
+        </div>
+        {order.map((item) => (
+          <div key={item.food.id} className="form-orders">
+            <div className="form-orders-main">
+              <img src={item.food.avatar} alt={item.food.name} />
+              <p>
+                {item.food.name} <span>{item.count}x</span>
+              </p>
+            </div>
+            <div>{splitNum(+item.food.price)} сум</div>
+          </div>
+        ))}
+      </div>
       <input
         className="input"
         type="text"
         placeholder="Имя"
         value={country}
         onChange={onChangeCountry}
-      />
-      <input
-        className="input"
-        type="text"
-        placeholder="Номер телефона"
-        value={street}
-        onChange={onChangeStreet}
       />
     </div>
   );
