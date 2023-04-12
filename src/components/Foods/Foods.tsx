@@ -44,7 +44,7 @@ function Foods() {
     } else {
       tg.MainButton.show();
       tg.MainButton.setParams({
-        text: `Заказать (Общий: ${splitNum(getTotalPrice(order))} сум`,
+        text: `Заказать (Общий: ${splitNum(getTotalPrice(order))} сум)`,
       });
     }
   }, [order, tg.MainButton]);
