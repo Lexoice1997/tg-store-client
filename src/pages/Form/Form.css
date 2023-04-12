@@ -34,10 +34,6 @@
   align-items: center;
 }
 
-.form-order-avatar {
-  margin-right: 15px;
-}
-
 .form-order-name {
   display: flex;
   justify-content: space-between;
@@ -47,7 +43,8 @@
   margin-right: 15px;
 }
 
-.form-order-count {
+.form-order-count,
+.form-order-total {
   color: #f8a917;
 }
 

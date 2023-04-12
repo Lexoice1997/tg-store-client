@@ -57,9 +57,9 @@ function Form() {
                 alt={item.food.name}
                 src={item.food.avatar}
                 effect="blur"
-                width="100%"
+                width={50}
                 height={50}
-                className="form-order-avatar"
+                style={{ marginRight: '15px' }}
               />
               <div className="form-order-name">
                 <p>{item.food.name}</p>
@@ -72,7 +72,7 @@ function Form() {
         <div className="form-orders">
           <div className="form-orders-main">
             <div className="form-order-name">
-              <p>Доставка</p>
+              <p>Доставка :</p>
             </div>
           </div>
           <div>{splitNum(5000)} сум</div>
@@ -80,10 +80,10 @@ function Form() {
         <div className="form-orders">
           <div className="form-orders-main">
             <div className="form-order-name">
-              <p>Общий:</p>
+              <p>Общий :</p>
             </div>
           </div>
-          <div>{splitNum(getTotalPrice(order) + 5000)} сум</div>
+          <div className="form-order-total">{splitNum(getTotalPrice(order) + 5000)} сум</div>
         </div>
       </div>
       <input
