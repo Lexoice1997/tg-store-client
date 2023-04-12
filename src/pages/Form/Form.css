@@ -26,6 +26,12 @@
   align-items: center;
 }
 
+.form-orders-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
 .input {
   width: 100%;
   padding: 10px;

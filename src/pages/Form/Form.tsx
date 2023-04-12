@@ -64,9 +64,8 @@ function Form() {
                 alt={item.food.name}
                 src={item.food.avatar}
                 effect="blur"
-                className="food-img"
                 width="100%"
-                height={50}
+                height={20}
               />
               <p>
                 {item.food.name} <span>{item.count}x</span>
