@@ -85,17 +85,17 @@
 }
 
 .food-btns button:first-child {
-  background-color: rgb(255, 91, 91);
+  background-color: #E64D44;
 }
 
 .food-btns button:last-child {
-  background-color: rgb(84, 84, 255);
+  background-color: #F8A917;
 }
 
 .food-btns button:first-child:hover {
-  background-color: rgb(255, 47, 47);
+  background-color: #8a110b;
 }
 
 .food-btns button:last-child:hover {
-  background-color: rgb(46, 46, 250);
+  background-color: #bb7c06;
 }
