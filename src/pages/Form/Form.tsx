@@ -7,19 +7,15 @@ import './Form.css';
 
 function Form() {
   const { order } = useAppSelector((state) => state.order);
-  const [country, setCountry] = useState('');
-  const [street, setStreet] = useState('');
-  const [subject] = useState('physical');
+  const [comment, setComment] = useState('');
   const { tg } = useTelegram();
 
   const onSendData = useCallback(() => {
     const data = {
-      country,
-      street,
-      subject,
+      comment,
     };
     tg.sendData(JSON.stringify(data));
-  }, [country, street, subject, tg]);
+  }, [comment, tg]);
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
@@ -35,19 +31,15 @@ function Form() {
   }, [tg.MainButton]);
 
   useEffect(() => {
-    if (!street || !country) {
+    if (!comment) {
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
     }
-  }, [country, street, tg.MainButton]);
+  }, [comment, tg.MainButton]);
 
-  const onChangeCountry = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setCountry(e.target.value);
-  };
-
-  const onChangeStreet = (e: React.ChangeEvent<HTMLInputElement>) => {
-    setStreet(e.target.value);
+  const onChangeComment = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setComment(e.target.value);
   };
 
   return (
@@ -65,7 +57,7 @@ function Form() {
                 src={item.food.avatar}
                 effect="blur"
                 width="100%"
-                height={75}
+                height={50}
               />
               <div className="form-order-name">
                 <p>{item.food.name}</p>
@@ -77,11 +69,11 @@ function Form() {
         ))}
       </div>
       <input
-        className="input"
+        className="form-input"
         type="text"
-        placeholder="Имя"
-        value={country}
-        onChange={onChangeCountry}
+        placeholder="Оставьте комментарии"
+        value={comment}
+        onChange={onChangeComment}
       />
     </div>
   );

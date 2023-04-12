@@ -48,14 +48,14 @@
   color: #f8a917;
 }
 
-.input {
+.form-input {
   width: 100%;
-  padding: 10px;
-  margin-top: 15px;
+  padding: 20px;
+  margin-top: 20px;
   font-style: 'Roboto';
+  font-size: 18px;
 }
 
-.select {
-  padding: 10px;
-  margin-top: 15px;
+.form-input::placeholder {
+  color: var(--tg-theme-hint-color);
 }
