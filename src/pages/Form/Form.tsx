@@ -2,6 +2,7 @@ import React, { useCallback, useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useAppSelector } from '../../helpers/hooks/redux';
 import { useTelegram } from '../../helpers/hooks/useTelegram';
+import { getTotalPrice } from '../../helpers/utils/getTotalPrice';
 import { splitNum } from '../../helpers/utils/splitNum';
 import './Form.css';
 
@@ -67,6 +68,22 @@ function Form() {
             <div>{splitNum(+item.food.price)} сум</div>
           </div>
         ))}
+        <div className="form-orders">
+          <div className="form-orders-main">
+            <div className="form-order-name">
+              <p>Доставка</p>
+            </div>
+          </div>
+          <div>{splitNum(5000)} сум</div>
+        </div>
+        <div className="form-orders">
+          <div className="form-orders-main">
+            <div className="form-order-name">
+              <p>Общий:</p>
+            </div>
+          </div>
+          <div>{splitNum(getTotalPrice(order) + 5000)} сум</div>
+        </div>
       </div>
       <input
         className="form-input"

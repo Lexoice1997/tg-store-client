@@ -50,10 +50,11 @@
 
 .form-input {
   width: 100%;
-  padding: 20px;
+  padding: 10px 20px;
   margin-top: 20px;
   font-style: 'Roboto';
   font-size: 18px;
+  background-color: var(--tg-theme-secondary-bg-color);
 }
 
 .form-input::placeholder {
