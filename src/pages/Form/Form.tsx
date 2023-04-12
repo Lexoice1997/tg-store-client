@@ -65,7 +65,7 @@ function Form() {
                 src={item.food.avatar}
                 effect="blur"
                 width="100%"
-                height={20}
+                height={75}
               />
               <div className="form-order-name">
                 <p>{item.food.name}</p>
