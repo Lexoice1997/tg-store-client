@@ -13,12 +13,12 @@ function FoodsItem({ id, name, price, avatar }: Food) {
 
   const increment = () => {
     setCount((prev) => prev + 1);
-    dispatch(incrementOrder({ food: { id, name, price }, count: 1 }));
+    dispatch(incrementOrder({ food: { id, name, price, avatar }, count: 1 }));
   };
 
   const decrement = () => {
     setCount((prev) => prev - 1);
-    dispatch(decrementOrder({ food: { id, name, price }, count: 1 }));
+    dispatch(decrementOrder({ food: { id, name, price, avatar }, count: 1 }));
   };
 
   return (
@@ -35,7 +35,6 @@ function FoodsItem({ id, name, price, avatar }: Food) {
         <div className="food-info">
           <div>
             <h2 className="food-name">{name}</h2>
-            {/* <p className="food-description">{description}</p> */}
           </div>
           <div>
             <p className="food-price">{splitNum(+price)} сум</p>
