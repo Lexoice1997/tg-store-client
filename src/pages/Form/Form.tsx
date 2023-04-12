@@ -59,10 +59,11 @@ function Form() {
                 effect="blur"
                 width="100%"
                 height={50}
+                className="form-order-avatar"
               />
               <div className="form-order-name">
                 <p>{item.food.name}</p>
-                <p>{item.count}x</p>
+                <p className="form-order-count">{item.count}x</p>
               </div>
             </div>
             <div>{splitNum(+item.food.price)} сум</div>

@@ -34,17 +34,20 @@
   align-items: center;
 }
 
+.form-order-avatar {
+  margin-right: 15px;
+}
+
 .form-order-name {
   display: flex;
   justify-content: space-between;
-  margin-left: 15px;
 }
 
 .form-order-name p:first-child {
   margin-right: 15px;
 }
 
-.form-order-name p:last-child {
+.form-order-count {
   color: #f8a917;
 }
 
@@ -55,6 +58,11 @@
   font-style: 'Roboto';
   font-size: 18px;
   background-color: var(--tg-theme-secondary-bg-color);
+  border: none;
+}
+
+.form-input:focus {
+  outline: none;
 }
 
 .form-input::placeholder {
