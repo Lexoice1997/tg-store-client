@@ -67,9 +67,10 @@ function Form() {
                 width="100%"
                 height={20}
               />
-              <p>
-                {item.food.name} <span>{item.count}x</span>
-              </p>
+              <div className="form-order-name">
+                <p>{item.food.name}</p>
+                <p>{item.count}x</p>
+              </div>
             </div>
             <div>{splitNum(+item.food.price)} сум</div>
           </div>
