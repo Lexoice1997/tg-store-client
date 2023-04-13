@@ -1,5 +1,7 @@
+/* eslint-disable react/jsx-no-comment-textnodes */
 import React, { useCallback, useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
+import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../helpers/hooks/redux';
 import { useTelegram } from '../../helpers/hooks/useTelegram';
 import { getTotalPrice } from '../../helpers/utils/getTotalPrice';
@@ -7,6 +9,7 @@ import { splitNum } from '../../helpers/utils/splitNum';
 import './Form.css';
 
 function Form() {
+  const navigate = useNavigate();
   const { order } = useAppSelector((state) => state.order);
   const [comment, setComment] = useState('');
   const { tg } = useTelegram();
@@ -17,6 +20,10 @@ function Form() {
     };
     tg.sendData(JSON.stringify(data));
   }, [comment, tg]);
+
+  const navigateToFoodsPage = () => {
+    navigate('/');
+  };
 
   useEffect(() => {
     tg.onEvent('mainButtonClicked', onSendData);
@@ -48,25 +55,28 @@ function Form() {
       <div className="form-body">
         <div className="form-title">
           <h3>ВАШ ЗАКАЗ</h3>
-          <p>Изменить</p>
+          <p onClick={navigateToFoodsPage}>Изменить</p>
         </div>
         {order.map((item) => (
           <div key={item.food.id} className="form-orders">
             <div className="form-orders-main">
-              <LazyLoadImage
-                alt={item.food.name}
-                src={item.food.avatar}
-                effect="blur"
-                width={50}
-                height={50}
-                style={{ marginRight: '15px' }}
-              />
+              <div className="form-orders-img">
+                <LazyLoadImage
+                  alt={item.food.name}
+                  src={item.food.avatar}
+                  effect="blur"
+                  width={50}
+                  height={50}
+                  style={{ marginRight: '15px' }}
+                />
+              </div>
+
               <div className="form-order-name">
                 <p>{item.food.name}</p>
                 <p className="form-order-count">{item.count}x</p>
               </div>
             </div>
-            <div>{splitNum(+item.food.price)} сум</div>
+            <div>{splitNum(+item.food.price * item.count)} сум</div>
           </div>
         ))}
         <div className="form-orders">

@@ -43,6 +43,10 @@
   margin-right: 15px;
 }
 
+.form-orders-img {
+  margin-right: 15px;
+}
+
 .form-order-count,
 .form-order-total {
   color: #f8a917;
@@ -50,11 +54,12 @@
 
 .form-input {
   width: 100%;
-  padding: 10px 20px;
+  padding: 15px 20px;
   margin-top: 20px;
   font-style: 'Roboto';
   font-size: 18px;
   background-color: var(--tg-theme-secondary-bg-color);
+  color: var(--tg-theme-text-color);
   border: none;
 }
 
