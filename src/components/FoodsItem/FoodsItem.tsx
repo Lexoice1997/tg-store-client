@@ -1,23 +1,24 @@
 import React from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import 'react-lazy-load-image-component/src/effects/blur.css';
-import { useAppDispatch } from '../../helpers/hooks/redux';
+import { useAppDispatch, useAppSelector } from '../../helpers/hooks/redux';
 import { splitNum } from '../../helpers/utils/splitNum';
 import { decrementOrder, incrementOrder } from '../../store/slices/orderSlice';
 import { Food } from '../../types/Food';
 import './FoodsItem.css';
 
 function FoodsItem({ id, name, price, avatar }: Food) {
+  const { order } = useAppSelector((state) => state.order);
   const dispatch = useAppDispatch();
-  const [count, setCount] = React.useState(0);
+  const [count, setCount] = React.useState(order.filter((item) => item.food.id === id));
 
   const increment = () => {
-    setCount((prev) => prev + 1);
+    // setCount((prev) => prev + 1);
     dispatch(incrementOrder({ food: { id, name, price, avatar }, count: 1 }));
   };
 
   const decrement = () => {
-    setCount((prev) => prev - 1);
+    // setCount((prev) => prev - 1);
     dispatch(decrementOrder({ food: { id, name, price, avatar }, count: 1 }));
   };
 
@@ -41,7 +42,7 @@ function FoodsItem({ id, name, price, avatar }: Food) {
           </div>
         </div>
         <div className="food-btns">
-          <button type="button" onClick={decrement} disabled={count === 0}>
+          <button type="button" onClick={decrement} disabled={count[0]?.count === 0}>
             <svg
               width="25"
               height="25"
@@ -56,7 +57,7 @@ function FoodsItem({ id, name, price, avatar }: Food) {
               <path d="M18.25 12.25H5.75" />
             </svg>
           </button>
-          <p>{count}</p>
+          <p>{count[0]?.count}</p>
           <button type="button" onClick={increment}>
             <svg
               width="25"
