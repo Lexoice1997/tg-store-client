@@ -1,10 +1,11 @@
 import { createAsyncThunk, createSlice, PayloadAction } from '@reduxjs/toolkit';
 import axios from 'axios';
 import { Categories, Category } from '../../types/Category';
+import { Food } from '../../types/Food';
 
 interface FoodState {
   data: Categories[];
-  foods: any;
+  foods: Food[];
   categories: Category[];
   isLoading: boolean;
 }
@@ -41,7 +42,7 @@ export const foodSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(searchFoods.fulfilled, (state, action: PayloadAction<any>) => {
+    builder.addCase(searchFoods.fulfilled, (state, action: PayloadAction<Food[]>) => {
       state.foods = action.payload;
     });
   },
