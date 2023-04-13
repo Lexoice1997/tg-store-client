@@ -42,11 +42,36 @@ function FoodsItem({ id, name, price, avatar }: Food) {
         </div>
         <div className="food-btns">
           <button type="button" onClick={decrement} disabled={count === 0}>
-            -
+            <svg
+              width="25"
+              height="25"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M18.25 12.25H5.75" />
+            </svg>
           </button>
           <p>{count}</p>
           <button type="button" onClick={increment}>
-            +
+            <svg
+              width="25"
+              height="25"
+              fill="none"
+              stroke="currentColor"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth="3"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M12 5.75v12.5" />
+              <path d="M18.25 12H5.75" />
+            </svg>
           </button>
         </div>
       </div>

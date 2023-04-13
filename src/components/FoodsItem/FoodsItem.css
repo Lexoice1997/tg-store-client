@@ -73,8 +73,11 @@
 }
 
 .food-btns button {
-  width: 50px;
-  height: 35px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 45px;
+  height: 32px;
   border: none;
   font-size: 26px;
   border-radius: 5px;
