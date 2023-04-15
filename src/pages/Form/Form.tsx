@@ -13,6 +13,7 @@ function Form() {
   const navigate = useNavigate();
   const { order } = useAppSelector((state) => state.order);
   const [comment, setComment] = useState('');
+  const [address, setAddress] = useState('');
   const { tg, user, queryId } = useTelegram();
 
   const onSendData = useCallback(() => {
@@ -44,12 +45,16 @@ function Form() {
   }, [tg.MainButton]);
 
   useEffect(() => {
-    if (!comment) {
+    if (!address) {
       tg.MainButton.hide();
     } else {
       tg.MainButton.show();
     }
-  }, [comment, tg.MainButton]);
+  }, [address, tg.MainButton]);
+
+  const onChangeAddress = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setAddress(e.target.value);
+  };
 
   const onChangeComment = (e: React.ChangeEvent<HTMLInputElement>) => {
     setComment(e.target.value);
@@ -105,9 +110,9 @@ function Form() {
         <input
           className="form-input"
           type="text"
-          placeholder="Оставьте комментарии"
-          value={comment}
-          onChange={onChangeComment}
+          placeholder="Напишите свой адрес"
+          value={address}
+          onChange={onChangeAddress}
         />
         <input
           className="form-input"
