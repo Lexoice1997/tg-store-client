@@ -31,5 +31,5 @@
   background-color: var(--tg-theme-button-color);
   color: var(--tg-theme-button-text-color);
   cursor: pointer;
-  border: none;
+  border-color:  var(--tg-theme-button-color);
 }
