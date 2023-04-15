@@ -4,6 +4,7 @@
   width: 100%;
   color: var(--tg-theme-text-color);
   background-color: var(--tg-theme-bg-color);
+  min-height: 100vh;
 }
 
 .form-body {
@@ -70,4 +71,8 @@
 
 .form-input::placeholder {
   color: var(--tg-theme-hint-color);
+}
+
+.form-inputs {
+  margin-bottom: 40px;
 }

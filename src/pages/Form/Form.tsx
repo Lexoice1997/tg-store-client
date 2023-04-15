@@ -101,20 +101,22 @@ function Form() {
           <div className="form-order-total">{splitNum(getTotalPrice(order) + 5000)} сум</div>
         </div>
       </div>
-      <input
-        className="form-input"
-        type="text"
-        placeholder="Оставьте комментарии"
-        value={comment}
-        onChange={onChangeComment}
-      />
-      <input
-        className="form-input"
-        type="text"
-        placeholder="Оставьте комментарии"
-        value={comment}
-        onChange={onChangeComment}
-      />
+      <div className="form-inputs">
+        <input
+          className="form-input"
+          type="text"
+          placeholder="Оставьте комментарии"
+          value={comment}
+          onChange={onChangeComment}
+        />
+        <input
+          className="form-input"
+          type="text"
+          placeholder="Оставьте комментарии"
+          value={comment}
+          onChange={onChangeComment}
+        />
+      </div>
     </div>
   );
 }
