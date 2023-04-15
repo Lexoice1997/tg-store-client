@@ -3,6 +3,7 @@
   flex-direction: column;
   width: 100%;
   color: var(--tg-theme-text-color);
+  background-color: var(--tg-theme-bg-color);
 }
 
 .form-body {

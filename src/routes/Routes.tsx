@@ -6,6 +6,7 @@ function RoutesComponent() {
   return (
     <Routes>
       <Route index element={<Home />} />
+      <Route path="/grand-lavash" element={<Home />} />
       <Route path="form" element={<Form />} />
     </Routes>
   );

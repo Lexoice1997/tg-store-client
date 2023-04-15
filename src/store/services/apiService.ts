@@ -21,7 +21,15 @@ export const apiService = createApi({
       query: (name) => ({ url: 'foods', method: 'GET', params: { name } }),
       providesTags: ['Categories'],
     }),
+    postOrder: builder.query<any, null>({
+      query: () => ({
+        url: `/order`,
+        method: 'POST',
+      }),
+      providesTags: ['Categories'],
+    }),
   }),
 });
 
-export const { useGetAllCategoriesQuery, useGetFoodsByCategoryIdQuery } = apiService;
+export const { useGetAllCategoriesQuery, useGetFoodsByCategoryIdQuery, usePostOrderQuery } =
+  apiService;
