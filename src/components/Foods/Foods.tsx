@@ -30,8 +30,6 @@ function Foods() {
     navigate('/form');
   };
 
-  console.log(foods);
-
   useEffect(() => {
     tg.onEvent('mainButtonClicked', navigateToFormPage);
     return () => {

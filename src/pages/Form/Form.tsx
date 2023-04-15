@@ -12,14 +12,18 @@ function Form() {
   const navigate = useNavigate();
   const { order } = useAppSelector((state) => state.order);
   const [comment, setComment] = useState('');
-  const { tg } = useTelegram();
+  const { tg, user, queryId } = useTelegram();
 
   const onSendData = useCallback(() => {
     const data = {
       comment,
+      user,
+      queryId,
+      order,
     };
+
     tg.sendData(JSON.stringify(data));
-  }, [comment, tg]);
+  }, [comment, order, queryId, tg, user]);
 
   const navigateToFoodsPage = () => {
     navigate('/');
