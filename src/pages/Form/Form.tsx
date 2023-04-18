@@ -34,9 +34,9 @@ function Form() {
       total_price: getTotalPrice(order),
     };
     tg.sendData(JSON.stringify(data));
+    tg.showAlert('Success');
 
     const sendData = await axios.post('https://bot.kvartirabar.uz/order', data).then((res) => {
-      tg.showAlert('Success');
       tg.close();
     });
   }, [address, comment, order, tg, user.id]);
