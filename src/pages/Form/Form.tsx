@@ -29,13 +29,12 @@ function Form() {
     const data = {
       comment,
       address,
-      user_id: user.id,
+      user_id: String(user.id),
       orders: result,
       total_price: getTotalPrice(order),
     };
-
-    const sendData = await axios.post('https://bot.kvartirabar.uz/order', data);
-    onClose();
+    tg.sendData(JSON.stringify(data));
+    const sendData = axios.post('https://bot.kvartirabar.uz/order', data).then(() => onClose());
   }, [address, comment, onClose, order, queryId]);
 
   const navigateToFoodsPage = () => {
