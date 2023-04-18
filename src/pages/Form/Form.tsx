@@ -35,8 +35,8 @@ function Form() {
     };
     tg.sendData(JSON.stringify(data));
 
-    const sendData = axios.post('https://bot.kvartirabar.uz/order', data).then(() => onClose());
-  }, [address, comment, onClose, order, tg, user.id]);
+    const sendData = axios.post('https://bot.kvartirabar.uz/order', data).then(() => tg.close());
+  }, [address, comment, order, tg, user.id]);
 
   const navigateToFoodsPage = () => {
     navigate('/');
