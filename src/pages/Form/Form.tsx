@@ -26,7 +26,6 @@ function Form() {
         price: item.food.price,
       };
     });
-    console.log(result);
     const data = {
       comment,
       address,
@@ -36,9 +35,6 @@ function Form() {
     };
 
     const sendData = axios.post('https://bot.kvartirabar.uz/order', { data });
-    console.log(data);
-
-    // tg.sendData(JSON.stringify(data));
   }, [address, comment, order, queryId]);
 
   const navigateToFoodsPage = () => {
