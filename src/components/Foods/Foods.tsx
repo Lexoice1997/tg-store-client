@@ -68,6 +68,9 @@ function Foods() {
             avatar={item.avatar}
           />
         ))}
+        <button onClick={navigateToFormPage} type="button">
+          Click
+        </button>
       </div>
     </div>
   );

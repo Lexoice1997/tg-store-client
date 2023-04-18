@@ -1,5 +1,6 @@
 /* eslint-disable @typescript-eslint/ban-ts-comment */
 /* eslint-disable react/jsx-no-comment-textnodes */
+import axios from 'axios';
 import React, { useCallback, useEffect, useState } from 'react';
 import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate } from 'react-router-dom';
@@ -17,15 +18,28 @@ function Form() {
   const { tg, user, queryId } = useTelegram();
 
   const onSendData = useCallback(() => {
+    const result = order.map((item) => {
+      return {
+        product_id: item.food.id,
+        product_name: item.food.name,
+        count: item.count,
+        price: item.food.price,
+      };
+    });
+    console.log(result);
     const data = {
       comment,
-      user,
-      queryId,
-      order,
+      address,
+      user_id: '5356014595',
+      orders: result,
+      total_price: getTotalPrice(order),
     };
 
-    tg.sendData(JSON.stringify(data));
-  }, [comment, order, queryId, tg, user]);
+    const sendData = axios.post('https://bot.kvartirabar.uz/order', { data });
+    console.log(data);
+
+    // tg.sendData(JSON.stringify(data));
+  }, [address, comment, order, queryId]);
 
   const navigateToFoodsPage = () => {
     navigate('/');
@@ -121,6 +135,9 @@ function Form() {
           value={comment}
           onChange={onChangeComment}
         />
+        <button onClick={onSendData} type="button">
+          Click
+        </button>
       </div>
     </div>
   );
