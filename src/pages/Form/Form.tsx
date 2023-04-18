@@ -34,7 +34,7 @@ function Form() {
       total_price: getTotalPrice(order),
     };
 
-    const sendData = axios.post('https://bot.kvartirabar.uz/order', { data });
+    const sendData = axios.post('https://bot.kvartirabar.uz/order', data);
   }, [address, comment, order, queryId]);
 
   const navigateToFoodsPage = () => {
