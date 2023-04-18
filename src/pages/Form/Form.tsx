@@ -17,7 +17,7 @@ function Form() {
   const [address, setAddress] = useState('');
   const { tg, user, queryId, onClose } = useTelegram();
 
-  const onSendData = useCallback(() => {
+  const onSendData = useCallback(async () => {
     const result = order.map((item) => {
       return {
         product_id: item.food.id,
@@ -29,12 +29,12 @@ function Form() {
     const data = {
       comment,
       address,
-      user_id: '5356014595',
+      user_id: user.id,
       orders: result,
       total_price: getTotalPrice(order),
     };
 
-    const sendData = axios.post('https://bot.kvartirabar.uz/order', data);
+    const sendData = await axios.post('https://bot.kvartirabar.uz/order', data);
     onClose();
   }, [address, comment, onClose, order, queryId]);
 
