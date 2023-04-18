@@ -15,7 +15,7 @@ function Form() {
   const { order } = useAppSelector((state) => state.order);
   const [comment, setComment] = useState('');
   const [address, setAddress] = useState('');
-  const { tg, user, queryId, onClose } = useTelegram();
+  const { tg, user, onClose } = useTelegram();
 
   const onSendData = useCallback(async () => {
     const result = order.map((item) => {
