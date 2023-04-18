@@ -15,7 +15,7 @@ function Form() {
   const { order } = useAppSelector((state) => state.order);
   const [comment, setComment] = useState('');
   const [address, setAddress] = useState('');
-  const { tg, user, queryId } = useTelegram();
+  const { tg, user, queryId, onClose } = useTelegram();
 
   const onSendData = useCallback(() => {
     const result = order.map((item) => {
@@ -35,7 +35,8 @@ function Form() {
     };
 
     const sendData = axios.post('https://bot.kvartirabar.uz/order', data);
-  }, [address, comment, order, queryId]);
+    onClose();
+  }, [address, comment, onClose, order, queryId]);
 
   const navigateToFoodsPage = () => {
     navigate('/');
