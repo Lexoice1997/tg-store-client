@@ -29,7 +29,7 @@ function Form() {
     const data = {
       comment,
       address,
-      user_id: '5356014595',
+      user_id: queryId,
       orders: result,
       total_price: getTotalPrice(order),
     };
