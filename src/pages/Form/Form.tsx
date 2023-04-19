@@ -36,6 +36,7 @@ function Form() {
     tg.showAlert('Success');
 
     const sendData = axios.post('https://bot.kvartirabar.uz/order', data).then((res) => onClose());
+    onClose();
   }, [address, comment, onClose, order, tg, user.id]);
 
   const navigateToFoodsPage = () => {
