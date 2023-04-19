@@ -35,7 +35,8 @@ function Form() {
     };
     tg.showAlert('Success');
 
-    const sendData = axios.post('https://bot.kvartirabar.uz/order', data).then((res) => onClose());
+    const sendData = await axios.post('https://bot.kvartirabar.uz/order', data);
+
     onClose();
   }, [address, comment, onClose, order, tg, user.id]);
 
