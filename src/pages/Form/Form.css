@@ -20,6 +20,7 @@
 
 .form-title p {
   color: var(--tg-theme-link-color);
+  cursor: pointer;
 }
 
 .form-orders {
