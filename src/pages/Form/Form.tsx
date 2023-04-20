@@ -33,7 +33,7 @@ function Form() {
       orders: result,
       total_price: getTotalPrice(order),
     };
-    // tg.showAlert('Success');
+    tg.showAlert('Success');
 
     const sendData = axios.post('https://kvartirabar.uz/order', data).then((res) => onClose());
     // onClose();
