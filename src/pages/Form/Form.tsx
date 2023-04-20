@@ -29,16 +29,16 @@ function Form() {
     const data = {
       comment,
       address,
-      user_id: String(user.id),
+      member: '1232145',
       orders: result,
       total_price: getTotalPrice(order),
     };
     tg.showAlert('Success');
 
-    const sendData = axios.post('https://bot.kvartirabar.uz/order', data);
+    const sendData = axios.post('https://kvartirabar.uz/order', data).then((res) => onClose());
 
     onClose();
-  }, [address, comment, onClose, order, tg, user.id]);
+  }, [address, comment, onClose, order, tg]);
 
   const navigateToFoodsPage = () => {
     navigate('/');
