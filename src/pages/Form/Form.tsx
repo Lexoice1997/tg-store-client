@@ -37,7 +37,7 @@ function Form() {
 
     const sendData = axios.post('https://kvartirabar.uz/order', data).then((res) => onClose());
     // onClose();
-  }, [address, comment, onClose, order, user.id]);
+  }, [address, comment, onClose, order, tg, user.id]);
 
   const navigateToFoodsPage = () => {
     navigate('/');
