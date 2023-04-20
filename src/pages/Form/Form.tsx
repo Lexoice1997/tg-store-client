@@ -33,7 +33,7 @@ function Form() {
       orders: result,
       total_price: getTotalPrice(order),
     };
-    tg.showAlert('Success');
+    tg.showAlert('😊Спасибо за покупку! В ближайшее время наш оператор свяжется с Вами.');
 
     const sendData = axios.post('https://kvartirabar.uz/order', data).then((res) => onClose());
     // onClose();
@@ -133,9 +133,9 @@ function Form() {
           value={comment}
           onChange={onChangeComment}
         />
-        <button onClick={onSendData} type="button">
+        {/* <button onClick={onSendData} type="button">
           Click
-        </button>
+        </button> */}
       </div>
     </div>
   );
