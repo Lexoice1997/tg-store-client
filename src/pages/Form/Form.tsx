@@ -23,7 +23,7 @@ function Form() {
         product_id: item.food.id,
         product_name: item.food.name,
         count: item.count,
-        price: item.food.price,
+        price: +item.food.price + getTotalPrice(order) >= 60000 ? 0 : 10000,
       };
     });
     const data = {
@@ -107,7 +107,7 @@ function Form() {
               <p>Доставка :</p>
             </div>
           </div>
-          <div>{splitNum(5000)} сум</div>
+          <div>{getTotalPrice(order) >= 60000 ? 0 : splitNum(10000)} сум</div>
         </div>
         <div className="form-orders">
           <div className="form-orders-main">
@@ -115,7 +115,9 @@ function Form() {
               <p>Общий :</p>
             </div>
           </div>
-          <div className="form-order-total">{splitNum(getTotalPrice(order) + 5000)} сум</div>
+          <div className="form-order-total">
+            {splitNum(getTotalPrice(order) + getTotalPrice(order) >= 60000 ? 0 : 10000)} сум
+          </div>
         </div>
       </div>
       <div className="form-inputs">
