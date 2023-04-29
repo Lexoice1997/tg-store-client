@@ -115,9 +115,7 @@ function Form() {
               <p>Общий :</p>
             </div>
           </div>
-          <div className="form-order-total">
-            {getTotalPrice(order) + getTotalPrice(order) >= 60000 ? 0 : 10000} сум
-          </div>
+          <div className="form-order-total">{getTotalPrice(order) >= 60000 ? 0 : 10000} сум</div>
         </div>
       </div>
       <div className="form-inputs">
