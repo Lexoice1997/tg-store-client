@@ -23,7 +23,7 @@ function Form() {
         product_id: item.food.id,
         product_name: item.food.name,
         count: item.count,
-        price: +item.food.price + getTotalPrice(order) >= 60000 ? 0 : 10000,
+        price: item.food.price,
       };
     });
     const data = {
@@ -31,7 +31,7 @@ function Form() {
       address,
       member: String(user.id),
       orders: result,
-      total_price: getTotalPrice(order),
+      total_price: getTotalPrice(order) + getTotalPrice(order) >= 60000 ? 0 : 10000,
     };
     tg.showAlert('😊Спасибо за покупку! В ближайшее время наш оператор свяжется с Вами.');
 
@@ -116,7 +116,7 @@ function Form() {
             </div>
           </div>
           <div className="form-order-total">
-            {splitNum(getTotalPrice(order) + getTotalPrice(order) >= 60000 ? 0 : 10000)} сум
+            {getTotalPrice(order) + getTotalPrice(order) >= 60000 ? 0 : 10000} сум
           </div>
         </div>
       </div>
