@@ -32,7 +32,7 @@ function Form() {
       address,
       member: String(user.id),
       orders: result,
-      total_price: getTotalPrice(order) + getTotalPrice(order) >= 60000 ? 0 : 10000,
+      total_price: getTotalPrice(order) + getOrderPrice(getTotalPrice(order)),
     };
     tg.showAlert('😊Спасибо за покупку! В ближайшее время наш оператор свяжется с Вами.');
 
@@ -117,7 +117,7 @@ function Form() {
             </div>
           </div>
           <div className="form-order-total">
-            {getTotalPrice(order) + getOrderPrice(getTotalPrice(order))} сум
+            {splitNum(getTotalPrice(order) + getOrderPrice(getTotalPrice(order)))} сум
           </div>
         </div>
       </div>
