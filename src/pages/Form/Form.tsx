@@ -6,6 +6,7 @@ import { LazyLoadImage } from 'react-lazy-load-image-component';
 import { useNavigate } from 'react-router-dom';
 import { useAppSelector } from '../../helpers/hooks/redux';
 import { useTelegram } from '../../helpers/hooks/useTelegram';
+import { getOrderPrice } from '../../helpers/utils/getOrderPrice';
 import { getTotalPrice } from '../../helpers/utils/getTotalPrice';
 import { splitNum } from '../../helpers/utils/splitNum';
 import './Form.css';
@@ -107,7 +108,7 @@ function Form() {
               <p>Доставка :</p>
             </div>
           </div>
-          <div>{getTotalPrice(order) >= 60000 ? 0 : splitNum(10000)} сум</div>
+          <div>{splitNum(getOrderPrice(getTotalPrice(order)))} сум</div>
         </div>
         <div className="form-orders">
           <div className="form-orders-main">
@@ -115,7 +116,9 @@ function Form() {
               <p>Общий :</p>
             </div>
           </div>
-          <div className="form-order-total">{getTotalPrice(order) >= 60000 ? 0 : 10000} сум</div>
+          <div className="form-order-total">
+            {getTotalPrice(order) + getOrderPrice(getTotalPrice(order))} сум
+          </div>
         </div>
       </div>
       <div className="form-inputs">
